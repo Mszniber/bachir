@@ -1,0 +1,185 @@
+<div class="container offset1">
+
+	<div class="span10" style="text-align:justify;">
+
+		<div class="page-header" id="Aboutus"> <h1> Rapport du projet </h1> </div>
+		<p>
+		<h2>Mise en contexte</h2>
+		<hr>
+		L'objectif de notre projet est de permettre à des personnes, étudiantes ou non, de pouvoir organiser leurs propres soirées 
+
+		Reedit // 
+		Pour le projet WEB, nous avons décidé de débuter sur un principe de site d'organisation de soirée privée et étudiante, une sorte de réseau social pour organiser des soirées de type défini par l'utilisateur. Ce concept serait novateur dans le sens où il apportera une dimension publique à un concept déjà utilisé.
+		Ainsi, l'objectif principal est de permettre à un maximum de personnes de pouvoir organiser des soirées dans le but d'étendre leur cercle d'amis, chacune des soirées pouvant être évaluée par les participants selon différents critères permettant ainsi d'établir une sorte de palmarès des hôtes les plus agréables de la nuit Lyonnaise.
+
+		<br>
+		<br>
+		<br>
+
+<h2>Framework</h2>
+		<hr>
+		Notre framework est basé sur un framework personnel, que vous avons completé, modifié et amélioré pour l'occasion. Le framework utilise le modèle MVC de la même manière que le framework Pokemon vu en TD.
+		<br>
+		La différence entre les 2 frameworks est que le notre n'est pas orienté objet. Nous incluons des modules.actions qui correspondent directement au fichier en question.
+		Nous vérifions cependant que le fichier est bien sur notre serveur pour éviter les attaques.
+		<br>
+		<h2>Base de données</h2>
+		<hr>
+		La base de données de notre site web est hébergée sur l'hebergeur 1and1.fr, on a donc ajouté, supprimé et modifié notre base de données via cet hebergeur qui propose une interface phpMyAdmin. Nos répartitions de base de données sont assez simple. La première partie consiste en des tables qui représentent les utilisateurs du site ( entreprises et étudiants) ainsi qu'une table qui répértorie les stages:
+		<ul>
+	<h2>Base de données</h2>
+		<hr>
+		La base de données de notre site web est hébergée sur l'hebergeur 1and1.fr, on a donc ajouté, supprimé et modifié notre base de données via cet hebergeur qui propose une interface phpMyAdmin. Nos répartitions de base de données sont assez simple. La première partie consiste en des tables qui représentent les utilisateurs du site ( entreprises et étudiants) ainsi qu'une table qui répértorie les stages:
+		<ul>
+			<li>entreprises : On ajoute dans cette base de données les profils entreprises </li>
+			<li>users : On ajoute dans cette base de données les profils étudiants </li>
+			<li>stages : On ajoute dans cette base de données les stages.</li>
+			<li>jeleveux : On ajoute dans cette base de données les interets Entreprises/Stagiaire.</li>
+			<li>mnichat : On ajoute dans cette base de données les messages du salon.</li>
+		</ul>
+		<br>
+		La deuxième partie de nos bases de données consiste en des tables de correspondances entre des valeurs entières et des char :
+		<ul>
+			<li>cp_diplome : Pour récupérer à quel niveau d’études est l’étudiant. </li>
+			<li>cp_domaine : Pour récupérer dans quel domaine d’études est l’étudiant.</li>
+			<li>cp_genre : Pour récuper le genre de l’étudiant ( Monsieur, Madame, Mademoiselle )</li>
+			<li>cp_permis : Pour récupérer si oui ou non le permis est détenu par l’étudiant. </li>
+			<li>cp_rayon : Pour récupérer jusqu’à quelle rayon l’étudiant peut se déplacer. </li>
+			<li>cp_situation : Pour récupérer dans quelle situation est l’étudiant ( Employé , Sans emploi , etc... )</li>
+			<li>cp_autocomplete : La base de données qui fait le lien entre code postal et ville. </li>
+		</ul>
+				<br>
+				<br>
+				<br>
+				<h3>Snapshot des bases</h3>
+				<br>
+				<br>
+				<h4>Base entreprises</h4><hr>
+				<img src="img/base_entreprise.jpg" alt="">
+				<br>
+				<br>
+				<h4>Base Etudiants</h4><hr>
+				<img src="img/base_etudiant.jpg" alt="">
+				<br>
+				<br>
+
+				<h4>Base Stages</h4><hr>
+				<img src="img/base_stage.jpg" alt="">
+
+				<br>
+				<br>
+				<br>
+
+
+		<h2>HTML & CSS & Javascript</h2>
+		<hr>
+		Pour toute la partie concernant les vues, nous sommes partis sur une librairie très utile : <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap twitter</a>. Cette librairie développée par les ingénieurs et designers de chez Twitter nous a en quelque sorte prémaché le travail pour avoir un design assez sobre, ce qui n'est pas courant pour des sites de recherche de travail.
+		Bootstrap Twitter consiste tout simplement en une librairie CSS  et une librairie javascript qui nous permettent d'appeler directement dans le code HTML des classes prédéfinies. Pour tout ce qui est du CSS nous nous sommes grandement inspirés du thème du site de Bootstrap. Nous avons aussi utilisé du javascript et du jquery pour rendre le site plus interactif et aussi pour gérér le traitement des données entrées par l'utilisateur, ce qui peut parfois  être périlleux!
+
+
+		<br>
+		<br>
+		<br>
+		<h2>Choix de l'organisation des scripts</h2>
+		<hr>
+		Les scripts sont organisés en sept dossiers.
+		Un dossier lib contenant toutes les librairies.
+		Un dossier modules contenant les dossiers entreprises, étudiants, mentions, stages et admin, chacun possédant des fichiers php "controllers", et un dossier contenant les vues.
+		Un dossier global dans lequel sont inclues toutes les vues qui seront communes à la totalité du site : footer, entête ...
+		Un dossier avec les images, un avec les libraires bootstrap et un avec notre propre css.
+
+
+
+
+		<br>
+		<br>
+		<br>
+
+		<h2>Améliorations</h2>
+		<hr>
+		Un siteweb n'étant jamais totalement terminé et ayant crée un site évolutif, de nombreuses fonctions peuvent être implementées et des fonctionnalités ajoutées. Nous aurions par exemple pu intégrer notre site avec des réseaux sociaux de type facebook, linkedin ou viadeo. Nous aurions aussi aimé installer un système de feedback pour ques les entreprises puissent laisser des commentaires sur les profils des étudiants.
+		Nous voudrions aussi pouvoir offrir à l'étudiant la possibilité de rentrer plusieurs cv dans des langues différentes pour rendre le site plus international!
+		<br>
+		<br>
+
+		<h2>Snapshots des vues</h2>
+				<hr>
+				<h4>Menu</h4><hr>
+				<img src="img/menu.jpg" alt="">
+				<br>
+				<br>
+				<h4>Bannière</h4><hr>
+				<img src="img/banner.jpg" alt="">
+				<br>
+				<br>
+				<h4>Footer</h4><hr>
+				<img src="img/footer.jpg" alt="">
+				<br>
+				<br>
+				<h4>Menu étudiant</h4><hr>
+				<img src="img/menu_etudiants.jpg" alt="">
+				<br>
+				<br>
+				<h4>Menu entreprises</h4><hr>
+				<img src="img/menu_entreprise.jpg" alt="">
+				<br>
+				<br>
+				<h4>Fenêtre modale</h4><hr>
+				<img src="img/modal.jpg" alt="">
+				<br>
+				<br>
+				<h4>Mes stages</h4><hr>
+				<img src="img/mes_stages.jpg" alt="">
+				<br>
+				<br>
+				<h4>Modif du compte</h4><hr>
+				<img src="img/modif_compte.jpg" alt="">
+				<br>
+				<br>
+				<h4>Profil</h4><hr>
+				<img src="img/profil.jpg" alt="">
+				<br>
+				<br>
+				<h4>Recherche stagiaire</h4><hr>
+				<img src="img/recherche_stagiaire.jpg" alt="">
+				<br>
+				<br>
+				<h4>Recherche stagiaire</h4><hr>
+				<img src="img/recherche_stagaire1.jpg" alt="">
+				<br>
+				<br>
+				<h4>Inscription</h4><hr>
+				<img src="img/inscription.jpg" alt="">
+				<br>
+				<br>
+				<h4>Connexion</h4><hr>
+				<img src="img/connexion1.jpg" alt="">
+				<br>
+				<br>
+				<h4>Connexion</h4><hr>
+				<img src="img/connexion.jpg" alt="">
+				<br>
+				<br>
+				<h4>Ajout d'un stage</h4><hr>
+				<img src="img/ajout_stage.jpg" alt="">
+				<br>
+				<br>
+				<br>
+
+
+
+
+		<h2>Annexe volumétrique des étapes</h2>
+		<hr>
+		Pour ce projet, nous avons décidé dans un premier temps de séparer le groupe en deux équipes ; une équipe s'occupait des vues et une autre de la partie controller. N'ayant pas trop apprécié la gestion de projet classique avec les diagrammes de Gantt vue en PSC, nous avons décidé d'adopter une méthodologie dite "agile" pour développer notre site web. Le projet n'étant initialement prévu que sur un créneau de 20h nous avons choisi des "sprints" dont la durée était égale à une séance de TP WEB. A l'issue de chaque séance, nous faisions une réunion de cinq minutes (stand-up meeting) dans le but de voir ce qu'il nous restait à faire et de prévoir ce que l'on ferait lors de la séance suivante. Nous avons divisé les tâches dans chaque équipe et tenté d'estimer la difficulté de chacune d'elle avant de passer à la partie réalisation. Timothée Malossane étant le plus expérimenté d'entre nous s'est vu doté de la fonction de scrummaster (chef de projet), capable de nous aiguiller en cas de problèmes. Bien que ce projet fut trop court pour qu'on puisse lui appliquer véritablement la méthode agile, cette organisation nous a permis d'appréhender les imprévus et de finir notre projet dans les temps.
+
+		La liste des sprints est la suivante :
+		<br>
+		<br>
+
+		<ul>
+			<li>Séance 1 : L'équipe controller a taché de mettre en place les bases de données et le framework tandis que l'équipe view s'est occupé d'appréhender la librairie bootstrap twitter et a commencé à développer les vues globales. </li>
+			<li>Séance 2 : L'équipe controller s'est occupée de la gestion de la connexion et de la gestion des comptes utilisateurs (entreprises comme étudiants) avec toutes les gestions d'erreur. Pendant ce temps l'équipe view avait pour mission de s'occuper des vues des espaces utilisateur et entreprise (profil ...)</li><br>
+			<li>Séance 3 : L'équipe controller s'est occupée de la modification des profils et des comptes, de l'ajout des demandes de stage. L'équipe view, elle, devait insérer des portions de javascript et de jquery afin de gérer les interactions avec les utilisateurs (pour faciliter le traitement des données) et rendre ainsi le site plus interactif. </li><br>
+			<li>Séances 4 et 5 : Lors de ces dernières séances, l'équipe controller avait en charge la gestion du panier, les fonctions de recherches de stage, le changement du mot de passe ainsi que tous les petits pépins qu'il restait à régler. L'équipe vue s'est occupée de la finalisation du design, le remplissage du contenu et les différents tests de fonctionnalité du site. </li><br>
+		</ul>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  content: MyText
+  date: 2013-05-21
+  hour: 2013-05-21 16:01:35
+  user: MyString
+  visibility: MyString
+  category: MyString
+
+two:
+  name: MyString
+  content: MyText
+  date: 2013-05-21
+  hour: 2013-05-21 16:01:35
+  user: MyString
+  visibility: MyString
+  category: MyString

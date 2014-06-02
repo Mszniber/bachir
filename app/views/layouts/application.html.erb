@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chemical Products</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body data-spy="scroll" data-target=".navbar">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+         <li class="brand"> <%= link_to "Chemistry", home_path %></li>
+        <div class="nav-collapse">
+          <ul class="nav">
+           
+            <li><%= link_to "Browse Products", posts_path %></li>
+
+            <li><%= link_to "New Product", new_post_path %></li>
+            
+            <li><%= link_to "New Component", new_component_path %></li>
+
+            <li><%= link_to "More" %></li>
+          
+          </ul>
+            <p class="navbar-text pull-right">
+            <% if user_signed_in? %>
+            Signed in as <%= current_user.email %>. Not you?
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-mini' %>
+          <% else %>
+            <%= link_to new_user_registration_path do %>
+            <button class="btn-mini btn btn-info">Sign Up</button>
+          <% end %>
+            <%= link_to new_user_session_path do %>
+            <button class="btn btn-info btn-mini">Sign In</button>
+          <% end %>
+          <% end %>
+      </p>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="span9"><%= yield %></div>
+    </div>
+  </div>
+  <div class="push"></div>
+                        </div>
+                        <div class="footer">
+                                <div class="container">
+
+
+                                        <div class="page-header">
+                                        </div>
+                                        <div>
+                                                <ul class="nav nav-pills">                                             
+                                                    <li><%= link_to "About this website" %></li>
+                                                    <li><%= link_to "Contact" %></li>
+                                                </ul>
+                                        </div>
+                                </div>
+                        </div>
+</body>
+</html>
+
+

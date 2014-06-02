@@ -1,0 +1,56 @@
+<%- model_class = Apero -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+
+<%= form_tag aperos_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Chercher", :name => nil %>
+  </p>
+<% end %>
+
+<table class="table zebra-striped">
+  <thead>
+    <tr>
+      <th><%= sortable "Nom" %></th>
+      <th><%= sortable "Description" %></th>
+      <th><%= sortable "Date" %></th>
+      <th><%= sortable "Hour" %></th>
+      <th><%= sortable "Visibilité" %></th>
+      <th><%= sortable "ID_User" %></th>
+      <th><%= sortable "Catégorie" %></th>
+      <th><%= sortable "Créé à" %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @aperos.each do |apero| %>
+      <tr>
+      
+        <td><%= apero.name %></td>
+        <td><%= apero.content %></td>
+        <td><%= apero.date %></td>
+        <td><%= apero.hour %></td>
+        <td><%= apero.visibility %></td>
+        <td><%= User.find(apero.user_id).email %></td>
+        <td><%= Category.find(apero.category_id).name %></td>
+        <td><%=l apero.created_at %></td>
+        <td>
+          <% if user_signed_in? && current_user.is_admin? %>
+            <%= link_to t('.Editer', :default => t("helpers.links.editer")),
+                      edit_apero_path(apero), :class => 'btn btn-mini' %>
+            <%= link_to t('.Supprimer', :default => t("helpers.links.destroy")),
+                      apero_path(apero),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Etes vous sûr ?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+                      <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")), new_apero_path,
+            :class => 'btn btn-primary' %>

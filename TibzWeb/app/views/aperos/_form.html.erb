@@ -1,0 +1,59 @@
+<%= form_for @apero, :html => { :class => 'form-horizontal' } do |f| %>
+
+    <% if @apero.errors.any? %>
+    <h2>Errors : </h2> 
+    <ul>
+    <% @apero.errors.full_messages.each do |message| %>
+    <div class="alert alert-error">
+    <li><%= message %></li>
+    </div>
+    <% end %>
+    </ul>
+    <% end %>
+
+ 
+  <div class="control-group">
+    <%= f.label :Nom, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :content, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :date, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Heure, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.time_select :hour, :class => 'time_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Visibilité, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select(:visibility, Apero::visibility_types) %>
+    </div>
+  </div>
+ 
+  <div class="control-group">
+    <%= f.label :Categorie, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :category_id, Category.all.collect {|c| [c.name,c.id]}, {:include_blank => false}%>
+
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                aperos_path, :class => 'btn' %>
+  </div>
+<% end %>

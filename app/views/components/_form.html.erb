@@ -1,0 +1,22 @@
+<%= form_for @component do |f| %>
+ <% if @component.errors.any? %>
+  <ul>
+      <% @component.errors.full_messages.each do |message| %>
+      <div class="alert alert-error">
+      <li><%= message %></li>
+    </div>
+      <% end %>
+  </ul>
+<% end %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                posts_path, :class => 'btn' %>
+  </div>
+<% end %>

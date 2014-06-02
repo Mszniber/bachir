@@ -1,0 +1,51 @@
+<%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+<% if @post.errors.any? %>
+  <ul>
+      <% @post.errors.full_messages.each do |message| %>
+      <div class="alert alert-error">
+      <li><%= message %></li>
+    </div>
+      <% end %>
+  </ul>
+<% end %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :time, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :difficulty, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :difficulty, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <% for component in Component.find(:all) %>
+  <div class="control-group">
+    <%= check_box_tag "post[component_ids][]", component.id, @post.components.include?(component) %>
+    <%= component.name %>
+  </div>
+  <% end %>
+<!-- Components form -->
+    
+
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                posts_path, :class => 'btn' %>
+  </div>
+<% end %>

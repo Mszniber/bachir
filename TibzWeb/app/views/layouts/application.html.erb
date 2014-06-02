@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aperoinsa</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href="favicon.ico" rel="icon" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="<%= root_url %>">AperoInsa</a>
+
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="<%= aperos_path %>">Events</a></li>
+              <li><a href="<%= new_apero_path %>">Créer un apéro</a></li>
+              <% if !user_signed_in? %>
+              <li><a href="<%= new_user_registration_path %>">Inscription</a></li>
+              <%end%>
+
+            </ul>
+           <li class="nav pull-right">   
+           <% if user_signed_in? %>
+        <p class="navbar-text pull-right">
+            Connecté en tant que <%= current_user.email %>. Ce n'est pas vous ?
+            <%= link_to "Deconnexion", destroy_user_session_path %>
+        </p>
+            <% else %> 
+            <%= form_for("user", :url => user_session_path, html: {class: 'navbar-form'}) do |f| %>
+            <%= f.text_field :email, placeholder: 'Email', class: 'span2' %>
+            <%= f.password_field :password, placeholder: 'Mot-de-passe', class: 'span2' %>
+            <%= f.submit 'Connexion', class: 'btn' %>
+            <% end %>
+
+            
+        <% end %>
+        </li>
+      </ul>
+
+
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+   <div class="container">
+    <div class="row">
+        <div class="span12"><%= yield %>
+        </div>
+    </div>
+  </div>
+
+
+ <div class="push"></div>
+  </div>
+  <div class="footer">
+  <div class="container">
+  <div class="page-header"> </div>
+   <div> 
+      <ul class="nav nav-pills">
+        <li> <a href="<%= root_url %>">Home</a> </li>
+        <li> <%= link_to "Aide-Apéro", aide_path %></li>
+        <li> <%= link_to "Contact", contact_path %></li>
+        <li > <%= link_to "A propos", about_path%> </a></li>
+        <li > <%= link_to "Rapport", rapport_path%> </li>
+              <div class='spread'>
+ 
+    <form class ="nav-form pull-right">
+      <div class='twshare left'>
+        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="funonrails">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      </div>
+      <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="" layout="button_count" show_faces="false" width="450" font=""></fb:like>
+    </div>
+
+      </ul>
+   </div>
+ </div>
+</div>
+</body >
+</html>
